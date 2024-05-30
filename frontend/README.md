@@ -1,2 +1,2 @@
 live url:
-https://friendly-vacherin-893b9f.netlify.app/
+https://sparkling-torte-833577.netlify.app/
