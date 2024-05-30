@@ -1,16 +1,14 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './components/partials/Header/Header'
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/partials/Header/Header";
+import "responsive-navbar-react/dist/index.css";
 
 function App() {
-
   return (
     <>
-    <div className='bg-slate-900'>
-    <Header/>
-    </div>
+      <Header />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
