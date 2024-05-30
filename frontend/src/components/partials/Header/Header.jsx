@@ -1,32 +1,74 @@
 import React, { useState } from "react";
 import "./Header.css"
 import { ReactNavbar } from "overlay-navbar";
+import { NavLink } from "react-router-dom";
 const Header = () => {
+  const [click, setClick] = React.useState(false);
+
+  const handleClick = () => setClick(!click);
+  const Close = () => setClick(false);
   return (
     <>
-    <div className="nav">
-      <div className="logo">
-        logon
-      </div>
-  <input type="checkbox" id="nav-check" />
-  <div className="nav-header">
-  </div>
-  <div className="nav-btn">
-    <label htmlFor="nav-check">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-  </div>
-  
-  <div className="nav-links">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-    <a href="#">Link 4</a>
-    <a href="#">Link 5</a>
-  </div>
-</div>
+    <div>
+     <div className={click ? "main-container" : ""}  onClick={()=>Close()} />
+      <nav className="navbar" onClick={e => e.stopPropagation()}>
+        <div className="nav-container">
+          <NavLink exact to="/" className="nav-logo">
+            CodeBucks
+            <i className="fa fa-code"></i>
+          </NavLink>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/"
+                activeClassName="active"
+                className="nav-links"
+                onClick={click ? handleClick : null}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/about"
+                activeClassName="active"
+                className="nav-links"
+                onClick={click ? handleClick : null}
+              >
+                About
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/blog"
+                activeClassName="active"
+                className="nav-links"
+                onClick={click ? handleClick : null}
+              >
+                Blog
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/contact"
+                activeClassName="active"
+                className="nav-links"
+               onClick={click ? handleClick : null}
+              >
+                Contact Us
+              </NavLink>
+            </li>
+          </ul>
+          <div className="nav-icon" onClick={handleClick}>
+            <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
+          </div>
+        </div>
+      </nav>
+    </ div>
     </>
   );
 };
